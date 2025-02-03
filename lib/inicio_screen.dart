@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,49 +13,50 @@ class MyApp extends StatelessWidget {
 }
 
 class InicioPage extends StatelessWidget {
+  const InicioPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF242424),
+      backgroundColor: const Color(0xFF242424),
       appBar: AppBar(
         backgroundColor: Colors.black,
+        centerTitle: true,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.menu),
-              color: Colors.white,
+            const Text(
+              'Curse',
+              style: TextStyle(color: Colors.white, fontSize: 17),
             ),
-            Row(
-              children: [
-                Text(
-                  'Curse',
-                  style: TextStyle(color: Colors.white, fontSize: 17),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                color: const Color(0xFF72FDFD),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: const Text(
+                'On',
+                style: TextStyle(
+                  color: Color(0xFF03A1B6),
+                  fontSize: 17,
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF72FDFD),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Text(
-                    'On',
-                    style: TextStyle(
-                      color: Color(0xFF03A1B6),
-                      fontSize: 17,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            CircleAvatar(
-              backgroundColor: Colors.grey,
-              radius: 20, // Redução do tamanho do Avatar
-              child: Icon(Icons.person, color: Colors.white),
+              ),
             ),
           ],
         ),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.menu),
+          color: Colors.white,
+        ),
+        actions: const [
+          CircleAvatar(
+            backgroundColor: Colors.grey,
+            radius: 20, // Redução do tamanho do Avatar
+            child: Icon(Icons.person, color: Colors.white),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -65,12 +64,12 @@ class InicioPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Aqui você encontra tudo que precisa e tem acesso às suas compras.",
                 style: TextStyle(color: Colors.white, fontSize: 17),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 "Minhas compras",
                 style: TextStyle(
                   color: Colors.white,
@@ -78,7 +77,8 @@ class InicioPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
+            
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -88,7 +88,7 @@ class InicioPage extends StatelessWidget {
                       'assets/imagens/copilot_image_1734722615984.jpeg',
                       'Programação Simplificada',
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     _buildCard(
                       context,
                       'assets/imagens/copilot_image_1734722505992.jpeg',
@@ -97,8 +97,8 @@ class InicioPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
-              Text(
+              const SizedBox(height: 30),
+              const Text(
                 "Produtos que você pode amar!",
                 style: TextStyle(
                   color: Colors.white,
@@ -106,7 +106,7 @@ class InicioPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -115,17 +115,17 @@ class InicioPage extends StatelessWidget {
                       'assets/imagens/images.jpeg',
                       'Violão do básico ao avançado',
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     _buildSuggestionCard(
                       'assets/imagens/vinho.jpeg',
                       'Escolha o melhor vinho',
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     _buildSuggestionCard(
                       'assets/imagens/images.jpeg',
                       'Violão do básico ao avançado',
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     _buildSuggestionCard(
                       'assets/imagens/vinho.jpeg',
                       'Degustação de vinho',
@@ -160,9 +160,9 @@ class InicioPage extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -170,26 +170,26 @@ class InicioPage extends StatelessWidget {
                       child: OutlinedButton(
                         onPressed: () {},
                         style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: Color(0xFF72FDFD)),
+                          side: const BorderSide(color: Color(0xFF72FDFD)),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Detalhes',
                           style: TextStyle(
                             color: Color(0xFF72FDFD),
-                            fontSize: 14, // Tamanho do texto do botão
+                            fontSize: 12, // Tamanho do texto do botão
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF72FDFD),
-                          foregroundColor: Color(0xFF03A1B6),
+                          backgroundColor: const Color(0xFF72FDFD),
+                          foregroundColor: const Color(0xFF03A1B6),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Acessar',
                           style: TextStyle(
                             fontSize: 14, // Tamanho do texto do botão
@@ -208,7 +208,7 @@ class InicioPage extends StatelessWidget {
   }
 
   Widget _buildSuggestionCard(String imagePath, String title) {
-    return Container(
+    return SizedBox(
       width: 200,
       child: Column(
         children: [
@@ -217,10 +217,10 @@ class InicioPage extends StatelessWidget {
             height: 200,
             color: Colors.grey,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             title,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
             textAlign: TextAlign.center,
           ),
         ],
